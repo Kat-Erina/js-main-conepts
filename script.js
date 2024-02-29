@@ -182,4 +182,113 @@ function giveMeTotal(qnt = 2, price) {
   console.log(qnt * price);
 }
 
-giveMeTotal(undefined, 50);
+// giveMeTotal(undefined, 50);
+
+// passing arguments to Functions
+
+const age = 30;
+const testPerson = {
+  name: "Katerina",
+  age: 30,
+};
+
+function checkTypes(first, second) {
+  // first = "Matilda";
+  // console.log(first);
+  second.age = 50;
+  console.log(second);
+}
+
+// checkTypes(undefined, testPerson);
+// console.log(testPerson.age);
+
+// Higher Order Function
+function changeFirstWord(str) {
+  let [firstWord, ...restWords] = str.split(" ");
+  return (letNewString = [firstWord.toUpperCase(), ...restWords].join(" "));
+}
+
+function hiherFunction(str, fn) {
+  console.log(`string will be trasnformed by ${fn.name}`);
+  return fn(str);
+}
+
+// console.log(hiherFunction("me miyvars nugzari", changeFirstWord));
+
+//
+// Returning Dunctions
+
+// function sum(a) {
+//   return function sum2(b) {
+//     return function sum3(c) {
+//       return a * b * c;
+//     };
+//   };
+// }
+
+// igive function arrow functionali
+let sum = (a) => (sum2 = (b) => (sum3 = (c) => a * b * c));
+
+let res1 = sum(2)(3)(5);
+// let res2 = res1(5);
+// let res3 = res2(7);
+// console.log(res3);
+console.log(res1);
+
+// IIFE
+
+(function () {
+  console.log("kcbjcbj");
+})();
+
+{
+  var mama = "Mamama";
+}
+
+{
+  let mama = "Mamama";
+}
+
+console.log(mama);
+
+//Closure
+
+let name3 = "Nodo";
+
+function checkTest() {
+  let name3 = "Ormoi";
+  return function mama() {
+    return (name3 = "Maka");
+  };
+}
+let test10 = checkTest();
+test10();
+// console.log(checkTest()());
+// console.log(name3);
+// console.dir(test10); - amit vxedavt closures scope propertyshi
+
+// meore magaliti
+
+let f;
+
+function test() {
+  const a = 40;
+  // let f; es rom ase yofiliyo , 50 gamoioanda f konsolshi
+  return (f = function () {
+    return a * 2;
+  });
+}
+
+console.log(test()());
+// console.log(f);
+
+// challenge
+
+(function () {
+  let h1 = document.querySelector("h1");
+  h1.style.color = "red";
+  document.querySelector("body").addEventListener("click", () => {
+    console.log("kjbkb");
+    h1.style.color = "blue";
+  });
+})();
